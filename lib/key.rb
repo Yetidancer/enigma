@@ -1,6 +1,6 @@
 class Key
 
-  attr_reader :alphabet, :random_array, :a_shift, :b_shift, :c_shift, :d_shift, :date
+  attr_accessor :alphabet, :random_array, :a_shift, :b_shift, :c_shift, :d_shift, :date
   def initialize
     @alphabet = ("a".."z").to_a << " "
     @random_array = []
@@ -27,6 +27,8 @@ class Key
 
   def letter_shift_a
     @a_shift = 20
+    # require "pry"; binding.pry
+    @a_shift = make_consecutives(@random_array)[0].join.to_i + date_shift(@date)[0].to_i
   end
 
   def letter_shift_b

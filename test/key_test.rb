@@ -50,15 +50,17 @@ class KeyTest < Minitest::Test
   end
 
   def test_it_can_calculate_letter_shift_a
-    @key.stubs(:random_array).returns([1,2,3,4,5])
-    @key.stubs(:date).returns("121212")
+    @key.random_array = [1,2,3,4,5]
+    @key.date = "121212"
+    
     @key.letter_shift_a
     assert_equal 20, @key.a_shift
   end
 
   def test_it_can_calculate_letter_shift_b
-    @key.stubs(:random_array).returns([1,2,3,4,5])
-    @key.stubs(:date).returns("121212")
+    @key.random_array = [1,2,3,4,5]
+    @key.date = "121212"
+
     @key.letter_shift_b
     assert_equal 32, @key.b_shift
   end
@@ -73,6 +75,8 @@ class KeyTest < Minitest::Test
   def test_it_can_calculate_letter_shift_d
     @key.stubs(:random_array).returns([1,2,3,4,5])
     @key.stubs(:date).returns("121212")
+
+
     @key.letter_shift_d
     assert_equal 49, @key.d_shift
   end
