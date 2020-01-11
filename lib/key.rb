@@ -28,4 +28,16 @@ class Key
   def letter_shift_a
     @a_shift = 20
   end
+
+  def letter_shift_b
+    @b_shift = 32
+  end
+
+  def letter_shift_c
+    @c_shift = 38
+  end
+
+  def letter_shift_d
+    @d_shift = 49
+  end
 end
