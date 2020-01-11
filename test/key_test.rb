@@ -5,7 +5,7 @@ require 'minitest/pride'
 class KeyTest < Minitest::Test
 
   def test_it_exists
-
-  end 
+    key = Key.new
+  end
 
 end
