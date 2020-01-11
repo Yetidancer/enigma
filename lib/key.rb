@@ -10,4 +10,9 @@ class Key
     5.times {random_array << (0..9).to_a.sample}
   end
 
+  def make_consecutives(array)
+    keys = []
+    array.each_cons(2) {|a| keys << a}
+    keys
+  end
 end

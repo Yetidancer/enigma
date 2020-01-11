@@ -33,7 +33,7 @@ class KeyTest < Minitest::Test
   def test_it_can_create_split_random_array_with_consecutive_values
     @key.stubs(:random_array).returns([1,2,3,4,5])
 
-    assert_equal [[1,2],[2,3],[3,4],[4,5]], @key.random_array.make_consecutives
+    assert_equal [[1,2],[2,3],[3,4],[4,5]], @key.make_consecutives(@key.random_array)
   end
 
 end
