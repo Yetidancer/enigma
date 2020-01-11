@@ -1,6 +1,6 @@
 class Key
 
-  attr_reader :alphabet, :random_array, :a_shift, :b_shift, :c_shift, :d_shift
+  attr_reader :alphabet, :random_array, :a_shift, :b_shift, :c_shift, :d_shift, :date
   def initialize
     @alphabet = ("a".."z").to_a << " "
     @random_array = []
@@ -8,6 +8,7 @@ class Key
     @b_shift = 0
     @c_shift = 0
     @d_shift = 0
+    @date = nil
   end
 
   def create_random_number
@@ -22,5 +23,9 @@ class Key
 
   def date_shift(date)
     (date.to_i ** 2).to_s.split('').last(4)
+  end
+
+  def letter_shift_a
+    @a_shift = 20
   end
 end
