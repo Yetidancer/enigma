@@ -26,20 +26,21 @@ class Key
   end
 
   def letter_shift_a
-    @a_shift = 20
-    # require "pry"; binding.pry
     @a_shift = make_consecutives(@random_array)[0].join.to_i + date_shift(@date)[0].to_i
   end
 
   def letter_shift_b
     @b_shift = 32
+    @b_shift = make_consecutives(@random_array)[1].join.to_i + date_shift(@date)[1].to_i
   end
 
   def letter_shift_c
     @c_shift = 38
+    @c_shift = make_consecutives(@random_array)[2].join.to_i + date_shift(@date)[2].to_i
   end
 
   def letter_shift_d
     @d_shift = 49
+    @d_shift = make_consecutives(@random_array)[3].join.to_i + date_shift(@date)[3].to_i
   end
 end
