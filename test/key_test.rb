@@ -38,5 +38,14 @@ class KeyTest < Minitest::Test
 
   def test_it_has_abcd_var_upon_initialize
     assert_equal 0, @key.a_shift
+    assert_equal 0, @key.b_shift
+    assert_equal 0, @key.c_shift
+    assert_equal 0, @key.d_shift
+  end
+
+  def test_it_can_produce_date_shift_array
+    @key.stubs(:date).returns("121212")
+
+    assert_equal ["8","9","4","4"], @key.date_shift(@key.date)
   end
 end
