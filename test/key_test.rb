@@ -21,7 +21,9 @@ class KeyTest < Minitest::Test
   end
 
   def test_it_can_generate_random_5_digit_number
-    assert_equal 5, @key.random_number.to_s.split('').length
+    @key.create_random_number
+
+    assert_equal 5, @key.random_array.length
 
     @key.stubs(:random_number).returns(12345)
 
