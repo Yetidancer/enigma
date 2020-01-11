@@ -36,4 +36,7 @@ class KeyTest < Minitest::Test
     assert_equal [[1,2],[2,3],[3,4],[4,5]], @key.make_consecutives(@key.random_array)
   end
 
+  def test_it_has_abcd_var_upon_initialize
+    assert_equal 0, @key.a_shift
+  end
 end

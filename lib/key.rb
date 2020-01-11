@@ -1,9 +1,13 @@
 class Key
 
-  attr_reader :alphabet, :random_array
+  attr_reader :alphabet, :random_array, :a_shift, :b_shift, :c_shift, :d_shift
   def initialize
     @alphabet = ("a".."z").to_a << " "
     @random_array = []
+    @a_shift = 0
+    @b_shift = 0
+    @c_shift = 0
+    @d_shift = 0
   end
 
   def create_random_number
