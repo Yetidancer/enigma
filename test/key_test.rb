@@ -81,6 +81,11 @@ class KeyTest < Minitest::Test
     assert_equal 49, @key.d_shift
   end
 
+  def test_shift_helper_method_works
+    @key.random_array = [1,2,3,4,5]
+    @key.date = "121212"
 
+    assert_equal 20, @key.letter_shift(0)
+  end
 
 end
