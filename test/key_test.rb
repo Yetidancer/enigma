@@ -25,9 +25,15 @@ class KeyTest < Minitest::Test
 
     assert_equal 5, @key.random_array.length
 
-    @key.stubs(:random_number).returns(12345)
+    @key.stubs(:random_array).returns([1,2,3,4,5])
 
-    assert_equal 12345, @key.random_number
+    assert_equal [1,2,3,4,5], @key.random_array
+  end
+
+  def test_it_can_create_split_random_array_with_consecutive_values
+    @key.stubs(:random_array).returns([1,2,3,4,5])
+
+    assert_equal [[1,2],[2,3],[3,4],[4,5]], @key.random_array.make_consecutives
   end
 
 end
