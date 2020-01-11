@@ -25,6 +25,10 @@ class Key
     (date.to_i ** 2).to_s.split('').last(4)
   end
 
+  def letter_shift(position)
+    make_consecutives(@random_array)[position].join.to_i + date_shift(@date)[position].to_i
+  end
+
   def letter_shift_a
     @a_shift = make_consecutives(@random_array)[0].join.to_i + date_shift(@date)[0].to_i
   end
