@@ -15,7 +15,7 @@ class KeyTest < Minitest::Test
   end
 
   def test_it_generates_alph_upon_initialize
-    assert_equals 27, @key.alphabet
+    assert_equal 27, @key.alphabet.length
   end
 
 end
