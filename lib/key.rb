@@ -19,4 +19,8 @@ class Key
     array.each_cons(2) {|a| keys << a}
     keys
   end
+
+  def date_shift(date)
+    (date.to_i ** 2).to_s.split('').last(4)
+  end
 end
