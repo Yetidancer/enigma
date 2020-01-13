@@ -31,8 +31,10 @@ class MessageTest < Minitest::Test
   end
 
   def test_text_to_array_helper_method_populates_text_arrays
-    @message.text_to_array(0)
+    @message.text_to_array(0,@message.a_array)
+    # @message.text_to_array(2,@message.c_array)
 
     assert_equal ["h","o","r"], @message.a_array
+    # assert_equal ["l","w","d"], @message.c_array
   end
 end
