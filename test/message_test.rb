@@ -61,7 +61,6 @@ class MessageTest < Minitest::Test
 
   def test_it_can_apply_shift_to_text_arrays
     @message.text_to_array
-    @key.digits_array = [1,2,3,4,5]
     @key.date = "121212"
     @key.letter_shift
     @message.shift_text_array_specific(@key,@message.b_array,@key.b_shift,@message.b_shifted)
@@ -71,7 +70,6 @@ class MessageTest < Minitest::Test
 
   def test_it_can_shift_all_text_arrays_simultaneously
     @message.text_to_array
-    @key.digits_array = [1,2,3,4,5]
     @key.date = "121212"
     @key.letter_shift
     @message.shift_text_array(@key)
@@ -82,9 +80,16 @@ class MessageTest < Minitest::Test
     assert_equal ["g", "j"], @message.d_shifted
   end
 
+  def test_make_shifted_array_method
+    @message.text_to_array
+    @key.date = "121212"
+    @key.letter_shift
+
+    assert_equal ["a","j","w","g","h","e","g","j","k","q","o",nil], @message.make_shifted_array(@key)
+  end
+
   def test_it_can_reform_text_string_after_shift
     @message.text_to_array
-    @key.digits_array = [1,2,3,4,5]
     @key.date = "121212"
     @key.letter_shift
     @message.reform_shifted_text(@key)
@@ -92,17 +97,7 @@ class MessageTest < Minitest::Test
     assert_equal "ajwghegjkqo", @message.shifted_text
   end
 
-  def test_make_shifted_array_method
-    @message.text_to_array
-    @key.digits_array = [1,2,3,4,5]
-    @key.date = "121212"
-    @key.letter_shift
-
-    assert_equal ["a","j","w","g","h","e","g","j","k","q","o",nil], @message.make_shifted_array(@key)
-  end
-
   def test_single_method_for_translate_exists
-    @key.digits_array = [1,2,3,4,5]
     @key.date = "121212"
     @key.letter_shift
     @message.translate_message(@key)

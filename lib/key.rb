@@ -4,7 +4,12 @@ class Key
   def initialize(key_digits = 0)
     @alphabet = ("a".."z").to_a << " "
     @key_digits = key_digits
-    @digits_array = []
+    @digits_array =
+      if key_digits == 0
+        self.create_random_number
+      else
+        self.translate_key_digits
+      end
     @a_shift = 0
     @b_shift = 0
     @c_shift = 0
@@ -38,6 +43,8 @@ class Key
   end
 
   def translate_key_digits
-    (@key_digits.to_s.split'').each {|digit| @digits_array << digit.to_i}
+    split_digits = []
+    (@key_digits.to_s.split'').each {|digit| split_digits << digit.to_i}
+    split_digits
   end
 end
