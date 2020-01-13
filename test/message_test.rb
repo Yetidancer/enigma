@@ -100,4 +100,13 @@ class MessageTest < Minitest::Test
 
     assert_equal ["a","j","w","g","h","e","g","j","k","q","o",nil], @message.make_shifted_array(@key)
   end
+
+  def test_single_method_for_translate_exists
+    @key.digits_array = [1,2,3,4,5]
+    @key.date = "121212"
+    @key.letter_shift
+    @message.translate_message
+
+    assert_equal "ajwghegjkqo", @message.shifted_text
+  end
 end
