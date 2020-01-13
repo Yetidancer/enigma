@@ -25,7 +25,7 @@ class MessageTest < Minitest::Test
   end
 
   def test_it_can_populate_text_array_a
-    @message.separate_text.text_to_a_array
+    @message.text_to_a_array
 
     assert_equal ["h","o","r"], @message.a_array
   end

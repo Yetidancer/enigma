@@ -1,12 +1,21 @@
 class Message
 
-  attr_reader :text
+  attr_reader :text, :a_array
   def initialize(text)
     @text = text
+    @a_array = []
   end
 
   def separate_text
     @text.split''
+  end
+
+  def text_to_a_array
+    counter = 0
+    separate_text.each do |letter|
+      @a_array << letter if (counter % 4 == 0)
+      counter += 1
+    end
   end
 
 end
