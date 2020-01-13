@@ -21,8 +21,10 @@ class MessageTest < Minitest::Test
   end
 
   def test_it_can_create_split_text_array
-    @message.separate_text
-
     assert_equal ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"], @message.separate_text
+  end
+
+  def test_it_can_populate_abcd_text_arrays
+    @message.separate_text
   end
 end

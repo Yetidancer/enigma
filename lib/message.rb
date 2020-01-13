@@ -5,6 +5,8 @@ class Message
     @text = text
   end
 
-  def separate
+  def separate_text
+    @text.split''
+  end
 
 end
