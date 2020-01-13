@@ -105,7 +105,7 @@ class MessageTest < Minitest::Test
     @key.digits_array = [1,2,3,4,5]
     @key.date = "121212"
     @key.letter_shift
-    @message.translate_message
+    @message.translate_message(@key)
 
     assert_equal "ajwghegjkqo", @message.shifted_text
   end

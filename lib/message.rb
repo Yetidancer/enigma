@@ -61,4 +61,9 @@ class Message
       counter += 1
       shifted_array}
   end
+
+  def translate_message(key)
+    text_to_array
+    reform_shifted_text(key)
+  end
 end
