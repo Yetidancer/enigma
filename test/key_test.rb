@@ -67,4 +67,8 @@ class KeyTest < Minitest::Test
 
     assert_equal 20, @key.helper_shift(0)
   end
+
+  def test_key_digits_is_0_if_no_value_is_passed_in_at_intitialization
+    assert_equal 0, @key.key_digits
+  end
 end

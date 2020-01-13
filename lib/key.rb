@@ -1,8 +1,9 @@
 class Key
 
-  attr_accessor :alphabet, :digits_array, :a_shift, :b_shift, :c_shift, :d_shift, :date
-  def initialize
+  attr_accessor :alphabet, :digits_array, :a_shift, :b_shift, :c_shift, :d_shift, :date, :key_digits
+  def initialize(key_digits = 0)
     @alphabet = ("a".."z").to_a << " "
+    @key_digits = key_digits
     @digits_array = []
     @a_shift = 0
     @b_shift = 0
