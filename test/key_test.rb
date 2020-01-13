@@ -49,43 +49,22 @@ class KeyTest < Minitest::Test
     assert_equal ["8","9","4","4"], @key.date_shift(@key.date)
   end
 
-  def test_it_can_calculate_letter_shift_a
+  def test_it_can_calculate_letter_shift
     @key.random_array = [1,2,3,4,5]
     @key.date = "121212"
 
-    @key.letter_shift_a
+    @key.letter_shift
+
     assert_equal 20, @key.a_shift
-  end
-
-  def test_it_can_calculate_letter_shift_b
-    @key.random_array = [1,2,3,4,5]
-    @key.date = "121212"
-
-    @key.letter_shift_b
     assert_equal 32, @key.b_shift
-  end
-
-  def test_it_can_calculate_letter_shift_c
-    @key.date = "121212"
-    @key.random_array = [1,2,3,4,5]
-
-    @key.letter_shift_c
     assert_equal 38, @key.c_shift
-  end
-
-  def test_it_can_calculate_letter_shift_d
-    @key.random_array = [1,2,3,4,5]
-    @key.date = "121212"
-
-    @key.letter_shift_d
     assert_equal 49, @key.d_shift
   end
-
+  
   def test_shift_helper_method_works
     @key.random_array = [1,2,3,4,5]
     @key.date = "121212"
 
-    assert_equal 20, @key.letter_shift(0)
+    assert_equal 20, @key.helper_shift(0)
   end
-
 end

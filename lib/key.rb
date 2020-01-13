@@ -25,23 +25,14 @@ class Key
     (date.to_i ** 2).to_s.split('').last(4)
   end
 
-  def letter_shift(position)
+  def helper_shift(position)
     make_consecutives(@random_array)[position].join.to_i + date_shift(@date)[position].to_i
   end
 
-  def letter_shift_a
-    @a_shift = letter_shift(0)
-  end
-
-  def letter_shift_b
-    @b_shift = letter_shift(1)
-  end
-
-  def letter_shift_c
-    @c_shift = letter_shift(2)
-  end
-
-  def letter_shift_d
-    @d_shift = letter_shift(3)
+  def letter_shift
+    @a_shift = helper_shift(0)
+    @b_shift = helper_shift(1)
+    @c_shift = helper_shift(2)
+    @d_shift = helper_shift(3)
   end
 end
