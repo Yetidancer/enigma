@@ -61,7 +61,11 @@ class MessageTest < Minitest::Test
 
   def test_it_can_apply_shift_to_text_arrays
     @message.text_to_array
-    @message.shift_text_array_specific(@key,@b_array)
+    @key.digits_array = [1,2,3,4,5]
+    @key.date = "121212"
+
+    @key.letter_shift
+    @message.shift_text_array_specific(@key,@message.b_array,@key.b_shift,@message.b_shifted)
     assert_equal ["j","e","q"], @message.b_shifted
   end
 
