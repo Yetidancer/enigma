@@ -36,17 +36,17 @@ class MessageTest < Minitest::Test
   end
 
   def test_text_to_array_helper_method_populates_text_array_b
-    @message.text_to_array_specific(1,@message.b_array)
+    @message.text_to_array_specific(-1,@message.b_array)
     assert_equal ["e"," ","l"], @message.b_array
   end
 
   def test_text_to_array_helper_method_populates_text_array_c
-    @message.text_to_array_specific(2,@message.c_array)
+    @message.text_to_array_specific(-2,@message.c_array)
     assert_equal ["l","w","d"], @message.c_array
   end
 
   def test_text_to_array_helper_method_populates_text_array_d
-    @message.text_to_array_specific(3,@message.d_array)
+    @message.text_to_array_specific(-3,@message.d_array)
     assert_equal ["l","o"], @message.d_array
   end
 end

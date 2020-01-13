@@ -1,10 +1,12 @@
 class Message
 
-  attr_reader :text, :a_array, :c_array
+  attr_reader :text, :a_array, :b_array, :c_array, :d_array
   def initialize(text)
     @text = text
     @a_array = []
+    @b_array = []
     @c_array = []
+    @d_array = []
   end
 
   def separate_text
