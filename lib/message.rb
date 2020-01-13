@@ -29,4 +29,10 @@ class Message
     end
   end
 
+  def text_to_array
+    text_to_array_specific(0,@a_array)
+    text_to_array_specific(-1,@b_array)
+    text_to_array_specific(-2,@c_array)
+    text_to_array_specific(-3,@d_array)
+  end
 end
