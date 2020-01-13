@@ -36,4 +36,8 @@ class Key
     @c_shift = helper_shift(2)
     @d_shift = helper_shift(3)
   end
+
+  def translate_key_digits
+    (@key_digits.to_s.split'').each {|digit| @digits_array << digit.to_i}
+  end
 end

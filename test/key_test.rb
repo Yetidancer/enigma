@@ -71,4 +71,12 @@ class KeyTest < Minitest::Test
   def test_key_digits_is_0_if_no_value_is_passed_in_at_intitialization
     assert_equal 0, @key.key_digits
   end
+
+  def test_key_digits_can_be_translated_into_digits_array
+    other_key = Key.new(54321)
+
+    other_key.translate_key_digits
+
+    assert_equal [5,4,3,2,1], other_key.digits_array
+  end
 end
