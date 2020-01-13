@@ -76,6 +76,9 @@ class MessageTest < Minitest::Test
     @key.letter_shift
     @message.shift_text_array(@key)
 
-    assert_equal '', @message.shifted_text
+    assert_equal ["a", "h", "k"], @message.a_shifted
+    assert_equal ["j","e","q"], @message.b_shifted
+    assert_equal ["w", "g", "o"], @message.c_shifted
+    assert_equal ["g", "j"], @message.d_shifted
   end
 end
