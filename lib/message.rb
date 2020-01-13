@@ -18,7 +18,7 @@ class Message
     end
   end
 
-  def text_to_array(position,array)
+  def text_to_array_specific(position,array)
     counter = position
     separate_text.each do |letter|
       array << letter if (counter % 4 == 0)
