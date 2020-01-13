@@ -47,4 +47,17 @@ class Message
     shift_text_array_specific(key, @d_array, key.d_shift, @d_shifted)
   end
 
+  def reform_shifted_text(key)
+    shift_text_array(key)
+    counter = 0
+    shifted_array = []
+    @a_shifted.each do |letter|
+      shifted_array << letter
+      shifted_array << @b_shifted[counter]
+      shifted_array << @c_shifted[counter]
+      shifted_array << @d_shifted[counter]
+      counter += 1
+    end
+    @shifted_text = shifted_array.join
+  end
 end
