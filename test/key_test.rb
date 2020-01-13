@@ -23,17 +23,17 @@ class KeyTest < Minitest::Test
   def test_it_can_generate_random_5_digit_number
     @key.create_random_number
 
-    assert_equal 5, @key.random_array.length
+    assert_equal 5, @key.digits_array.length
 
-    @key.stubs(:random_array).returns([1,2,3,4,5])
+    @key.stubs(:digits_array).returns([1,2,3,4,5])
 
-    assert_equal [1,2,3,4,5], @key.random_array
+    assert_equal [1,2,3,4,5], @key.digits_array
   end
 
-  def test_it_can_create_split_random_array_with_consecutive_values
-    @key.stubs(:random_array).returns([1,2,3,4,5])
+  def test_it_can_create_split_digits_array_with_consecutive_values
+    @key.stubs(:digits_array).returns([1,2,3,4,5])
 
-    assert_equal [[1,2],[2,3],[3,4],[4,5]], @key.make_consecutives(@key.random_array)
+    assert_equal [[1,2],[2,3],[3,4],[4,5]], @key.make_consecutives(@key.digits_array)
   end
 
   def test_it_has_abcd_var_upon_initialize
@@ -50,7 +50,7 @@ class KeyTest < Minitest::Test
   end
 
   def test_it_can_calculate_letter_shift
-    @key.random_array = [1,2,3,4,5]
+    @key.digits_array = [1,2,3,4,5]
     @key.date = "121212"
 
     @key.letter_shift
@@ -60,9 +60,9 @@ class KeyTest < Minitest::Test
     assert_equal 38, @key.c_shift
     assert_equal 49, @key.d_shift
   end
-  
+
   def test_shift_helper_method_works
-    @key.random_array = [1,2,3,4,5]
+    @key.digits_array = [1,2,3,4,5]
     @key.date = "121212"
 
     assert_equal 20, @key.helper_shift(0)
