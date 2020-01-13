@@ -29,4 +29,10 @@ class MessageTest < Minitest::Test
 
     assert_equal ["h","o","r"], @message.a_array
   end
+
+  def test_text_to_array_helper_method_populates_text_arrays
+    @message.text_to_array(0)
+
+    assert_equal ["h","o","r"], @message.a_array
+  end
 end
