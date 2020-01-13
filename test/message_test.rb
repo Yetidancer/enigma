@@ -15,6 +15,7 @@ class MessageTest < Minitest::Test
     assert_instance_of Message, @message
   end
 
-
-
+  def test_it_has_text
+    assert_equal "hello world", @message.text
+  end
 end
