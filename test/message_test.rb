@@ -1,4 +1,5 @@
 require './lib/key'
+require './lib/message'
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'mocha/minitest'
