@@ -48,16 +48,17 @@ class Message
   end
 
   def reform_shifted_text(key)
+    @shifted_text = make_shifted_array(key).join
+  end
+
+  def make_shifted_array(key)
     shift_text_array(key)
     counter = 0
-    shifted_array = []
-    @a_shifted.each do |letter|
-      shifted_array << letter
+    @a_shifted.reduce([]) {|shifted_array, letter| shifted_array << letter
       shifted_array << @b_shifted[counter]
       shifted_array << @c_shifted[counter]
       shifted_array << @d_shifted[counter]
       counter += 1
-    end
-    @shifted_text = shifted_array.join
+      shifted_array}
   end
 end

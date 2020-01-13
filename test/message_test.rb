@@ -91,4 +91,13 @@ class MessageTest < Minitest::Test
 
     assert_equal "ajwghegjkqo", @message.shifted_text
   end
+
+  def test_make_shifted_array_method
+    @message.text_to_array
+    @key.digits_array = [1,2,3,4,5]
+    @key.date = "121212"
+    @key.letter_shift
+
+    assert_equal ["a","j","w","g","h","e","g","j","k","q","o",nil], @message.make_shifted_array(@key)
+  end
 end
