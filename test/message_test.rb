@@ -81,4 +81,14 @@ class MessageTest < Minitest::Test
     assert_equal ["w", "g", "o"], @message.c_shifted
     assert_equal ["g", "j"], @message.d_shifted
   end
+
+  def test_it_can_reform_text_string_after_shift
+    @message.text_to_array
+    @key.digits_array = [1,2,3,4,5]
+    @key.date = "121212"
+    @key.letter_shift
+    @message.reform_shifted_text(@key)
+
+    assert_equal "ajwghegjkqo", @message.shifted_text
+  end
 end
