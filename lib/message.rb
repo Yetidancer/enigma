@@ -1,13 +1,17 @@
 class Message
 
-  attr_reader :text, :a_array, :b_array, :c_array, :d_array, :b_shifted
+  attr_reader :text, :a_array, :b_array, :c_array, :d_array, :a_shifted, :b_shifted, :c_shifted, :d_shifted, :shifted_text
   def initialize(text)
     @text = text
     @a_array = []
     @b_array = []
     @c_array = []
     @d_array = []
+    @a_shifted = []
     @b_shifted = []
+    @c_shifted = []
+    @d_shifted = []
+    @shifted_text = nil
   end
 
   def separate_text
@@ -36,10 +40,4 @@ class Message
     end
   end
 
-  def shift_text_array
-    shift_text_array_specific(@key,@message.a_array,@key.a_shift,@message.a_shifted)
-    shift_text_array_specific(@key,@message.b_array,@key.b_shift,@message.b_shifted)
-    shift_text_array_specific(@key,@message.b_array,@key.b_shift,@message.b_shifted)
-    shift_text_array_specific(@key,@message.b_array,@key.b_shift,@message.b_shifted)
-  end
 end

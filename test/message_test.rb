@@ -74,5 +74,8 @@ class MessageTest < Minitest::Test
     @key.digits_array = [1,2,3,4,5]
     @key.date = "121212"
     @key.letter_shift
+    @message.shift_text_array(@key)
+
+    assert_equal '', @message.shifted_text
   end
 end
