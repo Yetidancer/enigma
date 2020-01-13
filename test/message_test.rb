@@ -24,7 +24,9 @@ class MessageTest < Minitest::Test
     assert_equal ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"], @message.separate_text
   end
 
-  def test_it_can_populate_abcd_text_arrays
-    @message.separate_text
+  def test_it_can_populate_text_array_a
+    @message.separate_text.text_to_a_array
+
+    assert_equal ["h","o","r"], @message.a_array
   end
 end
