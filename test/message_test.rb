@@ -25,7 +25,7 @@ class MessageTest < Minitest::Test
   end
 
   def test_it_can_populate_text_array_a
-    @message.text_to_a_array
+    @message.text_to_array
 
     assert_equal ["h","o","r"], @message.a_array
   end
@@ -58,4 +58,11 @@ class MessageTest < Minitest::Test
     assert_equal ["l","w","d"], @message.c_array
     assert_equal ["l","o"], @message.d_array
   end
+
+  def test_it_can_apply_shift_to_text_arrays
+    @message.text_to_array
+    @message.shift_text_array_specific(@key,@b_array)
+    assert_equal ["j","e","q"], @message.b_shifted
+  end
+
 end
