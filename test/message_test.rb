@@ -63,10 +63,16 @@ class MessageTest < Minitest::Test
     @message.text_to_array
     @key.digits_array = [1,2,3,4,5]
     @key.date = "121212"
-
     @key.letter_shift
     @message.shift_text_array_specific(@key,@message.b_array,@key.b_shift,@message.b_shifted)
+
     assert_equal ["j","e","q"], @message.b_shifted
   end
 
+  def test_it_can_shift_all_text_arrays_simultaneously
+    @message.text_to_array
+    @key.digits_array = [1,2,3,4,5]
+    @key.date = "121212"
+    @key.letter_shift
+  end
 end

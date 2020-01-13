@@ -31,10 +31,15 @@ class Message
 
   def shift_text_array_specific(key,text_array,shift_number,shifted_array)
     text_array.each do |letter|
-      # require "pry"; binding.pry
       new_index = ((key.alphabet.index(letter) + shift_number) % 27)
-      # require "pry"; binding.pry
       shifted_array << key.alphabet[new_index]
     end
+  end
+
+  def shift_text_array
+    shift_text_array_specific(@key,@message.a_array,@key.a_shift,@message.a_shifted)
+    shift_text_array_specific(@key,@message.b_array,@key.b_shift,@message.b_shifted)
+    shift_text_array_specific(@key,@message.b_array,@key.b_shift,@message.b_shifted)
+    shift_text_array_specific(@key,@message.b_array,@key.b_shift,@message.b_shifted)
   end
 end
