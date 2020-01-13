@@ -8,6 +8,7 @@ require 'mocha/minitest'
 class MessageTest < Minitest::Test
 
   def setup
+    @key = Key.new(12345)
     @message = Message.new("hello world")
   end
 
@@ -17,5 +18,11 @@ class MessageTest < Minitest::Test
 
   def test_it_has_text
     assert_equal "hello world", @message.text
+  end
+
+  def test_it_can_create_split_text_array
+    @message.separate_text
+
+    assert_equal ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"], @message.separate_text
   end
 end

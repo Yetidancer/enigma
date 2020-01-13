@@ -5,4 +5,6 @@ class Message
     @text = text
   end
 
+  def separate
+
 end
