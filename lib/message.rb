@@ -33,12 +33,12 @@ class Message
     text_to_array_specific(-3,@d_array)
   end
 
-  def shift_text_array_specific(key,text_array,shift_number,shifted_array)
-    text_array.each do |letter|
-      new_index = ((key.alphabet.index(letter) + shift_number) % 27)
-      shifted_array << key.alphabet[new_index]
-    end
-  end
+  # def shift_text_array_specific(key,text_array,shift_number,shifted_array)
+  #   text_array.each do |letter|
+  #     new_index = ((key.alphabet.index(letter) + shift_number) % 27)
+  #     shifted_array << key.alphabet[new_index]
+  #   end
+  # end
 
   def reverse_shift_text_array_specific(key,text_array,shift_number,shifted_array)
     text_array.each do |letter|

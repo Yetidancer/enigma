@@ -10,7 +10,7 @@ class EncryptedMessageTest < Minitest::Test
 
   def setup
     @key = Key.new("12345","121212")
-    @message = Message.new("hello world")
+    @message = EncryptedMessage.new("hello world")
   end
 
   def test_it_can_apply_shift_to_text_arrays
@@ -32,3 +32,4 @@ class EncryptedMessageTest < Minitest::Test
     assert_equal ["w", "g", "o"], @message.c_shifted
     assert_equal ["g", "j"], @message.d_shifted
   end
+end
