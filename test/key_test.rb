@@ -7,7 +7,7 @@ require 'mocha/minitest'
 class KeyTest < Minitest::Test
 
   def setup
-    @key = Key.new
+    @key = Key.new("12345","121212")
   end
 
   def test_it_exists
@@ -48,9 +48,6 @@ class KeyTest < Minitest::Test
   end
 
   def test_it_can_calculate_letter_shift
-    @key.digits_array = [1,2,3,4,5]
-    @key.date = "121212"
-
     @key.letter_shift
 
     assert_equal 20, @key.a_shift
@@ -67,7 +64,9 @@ class KeyTest < Minitest::Test
   end
 
   def test_key_digits_is_0_if_no_value_is_passed_in_at_intitialization
-    assert_equal 0, @key.key_digits
+    other_key = Key.new
+
+    assert_equal 0, other_key.key_digits
   end
 
   def test_key_digits_can_be_translated_into_digits_array
@@ -77,6 +76,8 @@ class KeyTest < Minitest::Test
   end
 
   def test_it_can_populate_date_upon_initialization_if_none_given
-    assert_equal "130120", @key.date
+    other_key = Key.new("54321")
+
+    assert_equal "130120", other_key.date
   end
 end
