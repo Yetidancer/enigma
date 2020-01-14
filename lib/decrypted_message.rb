@@ -25,6 +25,4 @@ class DecryptedMessage < Message
       shifted_array << key.alphabet[new_index]
     end
   end
-
-
 end

@@ -22,11 +22,4 @@ class EncryptedMessage < Message
       shifted_array << key.alphabet[new_index]
     end
   end
-
-  def shift_text_array(key)
-    shift_text_array_specific(key, @a_array, key.a_shift, @a_shifted)
-    shift_text_array_specific(key, @b_array, key.b_shift, @b_shifted)
-    shift_text_array_specific(key, @c_array, key.c_shift, @c_shifted)
-    shift_text_array_specific(key, @d_array, key.d_shift, @d_shifted)
-  end
 end
