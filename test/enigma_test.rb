@@ -20,5 +20,16 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Enigma, @enigma
   end
 
+  def test_it_can_encrypt
+
+    encryption =
+    {
+    encryption: "keder ohulw",
+    key: "02715",
+    date: "040895"
+    }
+require "pry"; binding.pry
+    assert_equal encryption, @enigma.encrypt("hello world", "02715", "040895")
+  end
 
 end
