@@ -4,7 +4,7 @@ require './lib/decrypted_message'
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'mocha/minitest'
-
+require_relative 'test_helper'
 
 class DecryptedMessageTest < Minitest::Test
 
