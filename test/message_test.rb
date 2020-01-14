@@ -105,7 +105,16 @@ class MessageTest < Minitest::Test
     @message.reverse_shift_text_array_specific(@key,["j","e","q"],@key.b_shift,@message.b_shifted)
 
     assert_equal ["e"," ","l"], @message.b_shifted
+  end
 
+  def test_it_can_reverse_shift_all_text_arrays_simultaneously
+    @message.text_to_array
+    @key.letter_shift
+    @message.reverse_shift_text_array(@key)
 
+    assert_equal ["h","o","r"], @message.a_shifted
+    assert_equal ["e"," ","l"], @message.b_shifted
+    assert_equal ["l","w","d"], @message.c_shifted
+    assert_equal ["l","o"], @message.d_shifted
   end
 end
