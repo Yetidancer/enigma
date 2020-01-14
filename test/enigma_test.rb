@@ -21,15 +21,25 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_encrypt
-
     encryption =
     {
-    encryption: "keder ohulw",
-    key: "02715",
-    date: "040895"
+      encryption: "keder ohulw",
+      key: "02715",
+      date: "040895"
     }
-require "pry"; binding.pry
+
     assert_equal encryption, @enigma.encrypt("hello world", "02715", "040895")
+  end
+
+  def test_it_can_decrypt
+    decryption =
+    {
+      decryption: "hello world",
+      key: "02715",
+      date: "040895"
+    }
+
+    assert_equal decryption, @enigma.decrypt("keder ohulw", "02715", "040895")
   end
 
 end
