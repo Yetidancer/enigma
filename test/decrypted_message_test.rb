@@ -14,10 +14,11 @@ class DecryptedMessageTest < Minitest::Test
   end
 
   def test_reverse_shift_text_array_specific_works
+    @reverse_message.text_to_array
     @key.letter_shift
-    @message.reverse_shift_text_array_specific(@key,["j","e","q"],@key.b_shift,@message.b_shifted)
+    @reverse_message.reverse_shift_text_array_specific(@key,["j","e","q"],@key.b_shift,@reverse_message.b_shifted)
 
-    assert_equal ["e"," ","l"], @message.b_shifted
+    assert_equal ["e"," ","l"], @reverse_message.b_shifted
   end
 
   def test_it_can_reverse_shift_all_text_arrays_simultaneously
