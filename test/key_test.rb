@@ -21,8 +21,6 @@ class KeyTest < Minitest::Test
   end
 
   def test_it_can_generate_random_5_digit_number
-    @key.create_random_number
-
     assert_equal 5, @key.digits_array.length
 
     @key.stubs(:digits_array).returns([1,2,3,4,5])
@@ -73,10 +71,12 @@ class KeyTest < Minitest::Test
   end
 
   def test_key_digits_can_be_translated_into_digits_array
-    other_key = Key.new(54321)
-
-    other_key.translate_key_digits
+    other_key = Key.new("54321")
 
     assert_equal [5,4,3,2,1], other_key.digits_array
+  end
+
+  def test_it_can_populate_date_upon_initialization_if_none_given
+    assert_equal "130120", @key.date
   end
 end

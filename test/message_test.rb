@@ -8,7 +8,7 @@ require 'mocha/minitest'
 class MessageTest < Minitest::Test
 
   def setup
-    @key = Key.new(12345)
+    @key = Key.new("12345")
     @message = Message.new("hello world")
   end
 

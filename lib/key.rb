@@ -1,20 +1,34 @@
 class Key
 
   attr_accessor :alphabet, :digits_array, :a_shift, :b_shift, :c_shift, :d_shift, :date, :key_digits
-  def initialize(key_digits = 0)
+  def initialize(key_digits = 0, date = 0)
     @alphabet = ("a".."z").to_a << " "
-    @key_digits = key_digits
-    @digits_array =
-      if key_digits == 0
-        self.create_random_number
-      else
-        self.translate_key_digits
-      end
+    @digits_array = []
+    if key_digits == 0
+      @key_digits = key_digits
+      self.create_random_number
+    elsif (key_digits.split'').length == 5
+      @key_digits = key_digits
+      self.translate_key_digits
+    else
+      self.create_random_number
+    end
+
+    if date == 0
+      time = Time.new.strftime("%d%m%Y")
+      time_array = time.split''
+      time_array.delete_at(4)
+      time_array.delete_at(4)
+      @date = time_array.join
+    elsif (key_digits.split'').length == 6
+      @date = key_digits
+    else
+      @date = date
+    end
     @a_shift = 0
     @b_shift = 0
     @c_shift = 0
     @d_shift = 0
-    @date = nil
   end
 
   def create_random_number
@@ -43,8 +57,6 @@ class Key
   end
 
   def translate_key_digits
-    split_digits = []
-    (@key_digits.to_s.split'').each {|digit| split_digits << digit.to_i}
-    split_digits
+    (@key_digits.split'').each {|digit| @digits_array << digit.to_i}
   end
 end
