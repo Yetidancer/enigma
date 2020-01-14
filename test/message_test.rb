@@ -10,6 +10,7 @@ class MessageTest < Minitest::Test
   def setup
     @key = Key.new("12345","121212")
     @message = Message.new("hello world")
+    @reverse_message = Message.new("ajwghegjkqo")
   end
 
   def test_it_exists
@@ -71,6 +72,7 @@ class MessageTest < Minitest::Test
     @message.text_to_array
     @key.letter_shift
     @message.shift_text_array(@key)
+    # require "pry"; binding.pry
 
     assert_equal ["a", "h", "k"], @message.a_shifted
     assert_equal ["j","e","q"], @message.b_shifted
@@ -108,13 +110,13 @@ class MessageTest < Minitest::Test
   end
 
   def test_it_can_reverse_shift_all_text_arrays_simultaneously
-    @message.text_to_array
+    @reverse_message.text_to_array
     @key.letter_shift
-    @message.reverse_shift_text_array(@key)
+    @reverse_message.reverse_shift_text_array(@key)
 
-    assert_equal ["h","o","r"], @message.a_shifted
-    assert_equal ["e"," ","l"], @message.b_shifted
-    assert_equal ["l","w","d"], @message.c_shifted
-    assert_equal ["l","o"], @message.d_shifted
+    assert_equal ["h","o","r"], @reverse_message.a_shifted
+    assert_equal ["e"," ","l"], @reverse_message.b_shifted
+    assert_equal ["l","w","d"], @reverse_message.c_shifted
+    assert_equal ["l","o"], @reverse_message.d_shifted
   end
 end
