@@ -8,7 +8,7 @@ require 'mocha/minitest'
 class MessageTest < Minitest::Test
 
   def setup
-    @key = Key.new("12345")
+    @key = Key.new("12345","121212")
     @message = Message.new("hello world")
   end
 
@@ -61,7 +61,6 @@ class MessageTest < Minitest::Test
 
   def test_it_can_apply_shift_to_text_arrays
     @message.text_to_array
-    @key.date = "121212"
     @key.letter_shift
     @message.shift_text_array_specific(@key,@message.b_array,@key.b_shift,@message.b_shifted)
 
@@ -70,7 +69,6 @@ class MessageTest < Minitest::Test
 
   def test_it_can_shift_all_text_arrays_simultaneously
     @message.text_to_array
-    @key.date = "121212"
     @key.letter_shift
     @message.shift_text_array(@key)
 
@@ -82,7 +80,6 @@ class MessageTest < Minitest::Test
 
   def test_make_shifted_array_method
     @message.text_to_array
-    @key.date = "121212"
     @key.letter_shift
 
     assert_equal ["a","j","w","g","h","e","g","j","k","q","o",nil], @message.make_shifted_array(@key)
@@ -90,7 +87,6 @@ class MessageTest < Minitest::Test
 
   def test_it_can_reform_text_string_after_shift
     @message.text_to_array
-    @key.date = "121212"
     @key.letter_shift
     @message.reform_shifted_text(@key)
 
@@ -98,7 +94,6 @@ class MessageTest < Minitest::Test
   end
 
   def test_single_method_for_translate_exists
-    @key.date = "121212"
     @key.letter_shift
     @message.translate_message(@key)
 
