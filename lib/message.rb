@@ -40,6 +40,13 @@ class Message
     end
   end
 
+  def reverse_shift_text_array_specific(key,text_array,shift_number,shifted_array)
+    text_array.each do |letter|
+      new_index = ((key.alphabet.index(letter) + shift_number) % 27)
+      shifted_array << key.alphabet[new_index]
+    end
+  end
+
   def shift_text_array(key)
     shift_text_array_specific(key, @a_array, key.a_shift, @a_shifted)
     shift_text_array_specific(key, @b_array, key.b_shift, @b_shifted)

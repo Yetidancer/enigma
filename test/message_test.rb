@@ -99,4 +99,13 @@ class MessageTest < Minitest::Test
 
     assert_equal "ajwghegjkqo", @message.shifted_text
   end
+
+  def test_reverse_shift_text_array_specific_works
+    @key.letter_shift
+    @message.reverse_shift_text_array_specific(@key,["j","e","q"],@key.b_shift,@message.b_shifted)
+
+    assert_equal ["e"," ","l"], @message.b_shifted
+
+
+  end
 end
