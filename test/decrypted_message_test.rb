@@ -10,13 +10,13 @@ class DecryptedMessageTest < Minitest::Test
 
   def setup
     @key = Key.new("12345","121212")
-    @reverse_message = Message.new("ajwghegjkqo")
+    @reverse_message = DecryptedMessage.new("ajwghegjkqo")
   end
 
   def test_reverse_shift_text_array_specific_works
     @reverse_message.text_to_array
     @key.letter_shift
-    @reverse_message.reverse_shift_text_array_specific(@key,["j","e","q"],@key.b_shift,@reverse_message.b_shifted)
+    @reverse_message.shift_text_array_specific(@key,["j","e","q"],@key.b_shift,@reverse_message.b_shifted)
 
     assert_equal ["e"," ","l"], @reverse_message.b_shifted
   end
