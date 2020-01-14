@@ -1,9 +1,10 @@
 class Key
 
-  attr_accessor :alphabet, :digits_array, :a_shift, :b_shift, :c_shift, :d_shift, :date, :key_digits
+  attr_reader :alphabet, :digits_array, :a_shift, :b_shift, :c_shift, :d_shift, :date, :key_digits
   def initialize(key_digits = 0, date = 0)
     @alphabet = ("a".."z").to_a << " "
     @digits_array = []
+
     if key_digits == 0
       @key_digits = key_digits
       self.create_random_number
@@ -25,6 +26,7 @@ class Key
     else
       @date = date
     end
+
     @a_shift = 0
     @b_shift = 0
     @c_shift = 0

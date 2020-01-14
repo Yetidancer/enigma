@@ -57,9 +57,6 @@ class KeyTest < Minitest::Test
   end
 
   def test_shift_helper_method_works
-    @key.digits_array = [1,2,3,4,5]
-    @key.date = "121212"
-
     assert_equal 20, @key.helper_shift(0)
   end
 
