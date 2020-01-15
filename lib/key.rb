@@ -19,8 +19,6 @@ class Key
       time_array.delete_at(4)
       time_array.delete_at(4)
       @date = time_array.join
-    elsif (key_digits.split'').length == 6
-      @date = key_digits
     else
       @date = date
     end
@@ -33,8 +31,6 @@ class Key
     elsif (key_digits.split'').length == 5
       @key_digits = key_digits
       self.translate_key_digits
-    else
-      self.create_random_number
     end
   end
 

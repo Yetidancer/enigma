@@ -1,8 +1,8 @@
+require_relative 'test_helper'
 require './lib/key'
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'mocha/minitest'
-require_relative 'test_helper'
 
 class KeyTest < Minitest::Test
 
@@ -60,12 +60,6 @@ class KeyTest < Minitest::Test
     assert_equal 20, @key.helper_shift(0)
   end
 
-  def test_key_digits_is_0_if_no_value_is_passed_in_at_intitialization
-    other_key = Key.new
-
-    assert_equal 0, other_key.key_digits
-  end
-
   def test_key_digits_can_be_translated_into_digits_array
     other_key = Key.new("54321")
 
@@ -75,6 +69,6 @@ class KeyTest < Minitest::Test
   def test_it_can_populate_date_upon_initialization_if_none_given
     other_key = Key.new("54321")
 
-    assert_equal "130120", other_key.date
+    assert_equal "140120", other_key.date
   end
 end
