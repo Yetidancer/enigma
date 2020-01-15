@@ -1,3 +1,7 @@
+require './lib/encrypted_message'
+require './lib/decrypted_message'
+require './lib/key'
+
 class Enigma
 
   def initialize
