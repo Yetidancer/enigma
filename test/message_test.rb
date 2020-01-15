@@ -3,7 +3,7 @@ require './lib/message'
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'mocha/minitest'
-
+require_relative 'test_helper'
 
 class MessageTest < Minitest::Test
 

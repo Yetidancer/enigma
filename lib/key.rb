@@ -4,17 +4,15 @@ class Key
   def initialize(key_digits = 0, date = 0)
     @alphabet = ("a".."z").to_a << " "
     @digits_array = []
+    self.key_initialization(key_digits)
+    self.date_initialization(date)
+    @a_shift = 0
+    @b_shift = 0
+    @c_shift = 0
+    @d_shift = 0
+  end
 
-    if key_digits == 0
-      @key_digits = key_digits
-      self.create_random_number
-    elsif (key_digits.split'').length == 5
-      @key_digits = key_digits
-      self.translate_key_digits
-    else
-      self.create_random_number
-    end
-
+  def date_initialization(date)
     if date == 0
       time = Time.new.strftime("%d%m%Y")
       time_array = time.split''
@@ -26,11 +24,18 @@ class Key
     else
       @date = date
     end
+  end
 
-    @a_shift = 0
-    @b_shift = 0
-    @c_shift = 0
-    @d_shift = 0
+  def key_initialization(key_digits)
+    if key_digits == 0
+      self.create_random_number
+      @key_digits = @digits_array.join
+    elsif (key_digits.split'').length == 5
+      @key_digits = key_digits
+      self.translate_key_digits
+    else
+      self.create_random_number
+    end
   end
 
   def create_random_number
